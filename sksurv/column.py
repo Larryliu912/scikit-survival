@@ -198,4 +198,5 @@ def categorical_to_numeric(table):
     if isinstance(table, pandas.Series):
         return pandas.Series(transform(table), name=table.name, index=table.index)
     else:
+        # Raises a deprecation warning in pandas 0.23
         return table.apply(transform, axis=0, reduce=False)
